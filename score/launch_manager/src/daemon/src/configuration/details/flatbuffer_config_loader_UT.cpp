@@ -43,7 +43,7 @@ using ::testing::VariantWith;
 
 const score::filesystem::Path kTestPath{"/tmp/test_config.bin"};
 
-/// Name of the Run Target the loader appends when the configuration does not provide it.
+/// @brief Name of the Run Target the loader appends when the configuration does not provide it.
 constexpr const char* kOffRunTargetName = "Off";
 
 std::vector<uint8_t> finishBuffer(
@@ -255,7 +255,8 @@ TEST_F(FlatbufferConfigLoaderTest, LoadSingleComponent)
     EXPECT_THAT(comp.name, Eq("TestComponent"));
     EXPECT_THAT(comp.description, Eq("A test component"));
     EXPECT_THAT(
-        comp.component_properties.application_profile.application_type, Eq(ApplicationType::ReportingAndSupervised));
+        052 comp.component_properties.application_profile.application_type,
+        Eq(ApplicationType::ReportingAndSupervised));
     EXPECT_THAT(comp.component_properties.application_profile.is_self_terminating, IsTrue());
     ASSERT_THAT(comp.component_properties.application_profile.alive_supervision.has_value(), IsTrue());
     EXPECT_THAT(comp.component_properties.application_profile.alive_supervision->reporting_cycle_ms, Eq(500U));
